@@ -41,7 +41,6 @@ public class PvpTest {
 		MinecraftServer server = MinecraftServer.init();
 		PvpExtension.init();
 		MinestomFluids.init();
-		//VelocityProxy.enable("tj7MulOtnIDe");
 		
 		DimensionType fullbright = DimensionType.builder(NamespaceID.from("idk")).ambientLight(1.0f).build();
 		MinecraftServer.getDimensionTypeManager().addDimension(fullbright);
@@ -80,11 +79,6 @@ public class PvpTest {
 								Math.cos(entity.getPosition().yaw() * 3.1415927F / 180.0F) * 1 * settings.extraHorizontal()
 						));
 					});
-//					EntityKnockbackEvent entityKnockbackEvent = new EntityKnockbackEvent(player.get(), entity, true, false, 1 * 0.5F);
-//					EventDispatcher.callCancellable(entityKnockbackEvent, () -> {
-//						float strength = entityKnockbackEvent.getStrength();
-//						player.get().takeKnockback(strength, Math.sin(Math.toRadians(entity.getPosition().yaw())), -Math.cos(Math.toRadians(entity.getPosition().yaw())));
-//					});
 				}
 				
 				event.getPlayer().setFood(20);
@@ -98,22 +92,11 @@ public class PvpTest {
 			event.getPlayer().setPermissionLevel(4);
 			event.getPlayer().addEffect(new Potion(PotionEffect.REGENERATION, (byte) 10, CustomPotionEffect.PERMANENT));
 		});
-		
-//		LegacyKnockbackSettings settings = LegacyKnockbackSettings.builder()
-//				.horizontal(0.35)
-//				.vertical(0.4)
-//				.verticalLimit(0.4)
-//				.extraHorizontal(0.45)
-//				.extraVertical(0.1)
-//				.build();
-//		MinecraftServer.getGlobalEventHandler().addListener(LegacyKnockbackEvent.class,
-//				event -> event.setSettings(settings));
-		
+
 		instance.setExplosionSupplier(PvpExplosionSupplier.INSTANCE);
 		
 		GlobalEventHandler eventHandler = MinecraftServer.getGlobalEventHandler();
 		eventHandler.addChild(PvPConfig.defaultBuilder()
-				//.potion(PotionConfig.legacyBuilder().drinking(false))
 				.build().createNode()
 		);
 		

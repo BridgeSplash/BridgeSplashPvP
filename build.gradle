@@ -6,7 +6,7 @@ plugins {
 sourceCompatibility = 17
 
 group 'io.github.bloepiloepi'
-version '1.0'
+version '1.1.0'
 
 repositories {
     mavenCentral()
@@ -19,8 +19,8 @@ java {
 }
 
 dependencies {
-    compileOnly "dev.hollowcube:minestom-ce:8a5c610b7b"
-    testImplementation 'com.github.Minestom.Minestom:Minestom:85febebd09'
+    compileOnly "com.github.Minestom:Minestom:954e8b3915"
+    testImplementation 'com.github.Minestom:Minestom:954e8b3915'
     testImplementation 'com.github.TogAr2:MinestomFluids:b237b13a4b'
 }
 
